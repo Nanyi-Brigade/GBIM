@@ -16,6 +16,7 @@ class Camera(object):
       ret_flag, Vshow = self.cap.read()  # 是否正确，图像
       if not ret_flag:
         print("Failed to get image")
+      cv2.imshow('Capture', Vshow)
       # q退出
       usdown = cv2.waitKey(0)
       if usdown == "q":
@@ -29,4 +30,3 @@ class Camera(object):
           (time.time().replace(".", "_") + ".jpg")
         )
         cv2.imwrite(img_path, Vshow)
-      return Vshow
