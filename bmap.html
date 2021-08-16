@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>BMap</title>
-<!--ÒıÓÃ°Ù¶ÈµØÍ¼API-->
+<!--å¼•ç”¨ç™¾åº¦åœ°å›¾API-->
 <style type="text/css">
     html,body{margin:0;padding:0;}
     .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
@@ -13,47 +13,47 @@
 </head>
 
 <body>
-  <!--°Ù¶ÈµØÍ¼ÈİÆ÷-->
+  <!--ç™¾åº¦åœ°å›¾å®¹å™¨-->
   <div style="width:512px;height:512px;border:#ccc solid 1px;" id="dituContent"></div>
 </body>
 <script type="text/javascript">
-    //´´½¨ºÍ³õÊ¼»¯µØÍ¼º¯Êı£º
+    //åˆ›å»ºå’Œåˆå§‹åŒ–åœ°å›¾å‡½æ•°ï¼š
     function initMap(){
-        createMap();//´´½¨µØÍ¼
-        setMapEvent();//ÉèÖÃµØÍ¼ÊÂ¼ş
-        addMapControl();//ÏòµØÍ¼Ìí¼Ó¿Ø¼ş
+        createMap();//åˆ›å»ºåœ°å›¾
+        setMapEvent();//è®¾ç½®åœ°å›¾äº‹ä»¶
+        addMapControl();//å‘åœ°å›¾æ·»åŠ æ§ä»¶
     }
     
-    //´´½¨µØÍ¼º¯Êı£º
+    //åˆ›å»ºåœ°å›¾å‡½æ•°ï¼š
     function createMap(){
-        var map = new BMap.Map("dituContent");//ÔÚ°Ù¶ÈµØÍ¼ÈİÆ÷ÖĞ´´½¨Ò»¸öµØÍ¼
-        var point = new BMap.Point(106.557165,29.570997);//¶¨ÒåÒ»¸öÖĞĞÄµã×ø±ê
-        map.centerAndZoom(point,15);//Éè¶¨µØÍ¼µÄÖĞĞÄµãºÍ×ø±ê²¢½«µØÍ¼ÏÔÊ¾ÔÚµØÍ¼ÈİÆ÷ÖĞ
-        window.map = map;//½«map±äÁ¿´æ´¢ÔÚÈ«¾Ö
+        var map = new BMap.Map("dituContent");//åœ¨ç™¾åº¦åœ°å›¾å®¹å™¨ä¸­åˆ›å»ºä¸€ä¸ªåœ°å›¾
+        var point = new BMap.Point(106.557165,29.570997);//å®šä¹‰ä¸€ä¸ªä¸­å¿ƒç‚¹åæ ‡
+        map.centerAndZoom(point,15);//è®¾å®šåœ°å›¾çš„ä¸­å¿ƒç‚¹å’Œåæ ‡å¹¶å°†åœ°å›¾æ˜¾ç¤ºåœ¨åœ°å›¾å®¹å™¨ä¸­
+        window.map = map;//å°†mapå˜é‡å­˜å‚¨åœ¨å…¨å±€
     }
     
-    //µØÍ¼ÊÂ¼şÉèÖÃº¯Êı£º
+    //åœ°å›¾äº‹ä»¶è®¾ç½®å‡½æ•°ï¼š
     function setMapEvent(){
-        map.enableDragging();//ÆôÓÃµØÍ¼ÍÏ×§ÊÂ¼ş£¬Ä¬ÈÏÆôÓÃ(¿É²»Ğ´)
-        map.enableScrollWheelZoom();//ÆôÓÃµØÍ¼¹öÂÖ·Å´óËõĞ¡
-        map.enableDoubleClickZoom();//ÆôÓÃÊó±êË«»÷·Å´ó£¬Ä¬ÈÏÆôÓÃ(¿É²»Ğ´)
-        map.enableKeyboard();//ÆôÓÃ¼üÅÌÉÏÏÂ×óÓÒ¼üÒÆ¶¯µØÍ¼
+        map.enableDragging();//å¯ç”¨åœ°å›¾æ‹–æ‹½äº‹ä»¶ï¼Œé»˜è®¤å¯ç”¨(å¯ä¸å†™)
+        map.enableScrollWheelZoom();//å¯ç”¨åœ°å›¾æ»šè½®æ”¾å¤§ç¼©å°
+        map.enableDoubleClickZoom();//å¯ç”¨é¼ æ ‡åŒå‡»æ”¾å¤§ï¼Œé»˜è®¤å¯ç”¨(å¯ä¸å†™)
+        map.enableKeyboard();//å¯ç”¨é”®ç›˜ä¸Šä¸‹å·¦å³é”®ç§»åŠ¨åœ°å›¾
     }
     
-    //µØÍ¼¿Ø¼şÌí¼Óº¯Êı£º
+    //åœ°å›¾æ§ä»¶æ·»åŠ å‡½æ•°ï¼š
     function addMapControl(){
-        //ÏòµØÍ¼ÖĞÌí¼ÓËõ·Å¿Ø¼ş
+        //å‘åœ°å›¾ä¸­æ·»åŠ ç¼©æ”¾æ§ä»¶
 	var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_SMALL});
 	map.addControl(ctrl_nav);
-        //ÏòµØÍ¼ÖĞÌí¼ÓËõÂÔÍ¼¿Ø¼ş
+        //å‘åœ°å›¾ä¸­æ·»åŠ ç¼©ç•¥å›¾æ§ä»¶
 	var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
 	map.addControl(ctrl_ove);
-        //ÏòµØÍ¼ÖĞÌí¼Ó±ÈÀı³ß¿Ø¼ş
+        //å‘åœ°å›¾ä¸­æ·»åŠ æ¯”ä¾‹å°ºæ§ä»¶
 	var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
 	map.addControl(ctrl_sca);
     }
     
     
-    initMap();//´´½¨ºÍ³õÊ¼»¯µØÍ¼
+    initMap();//åˆ›å»ºå’Œåˆå§‹åŒ–åœ°å›¾
 </script>
 </html>

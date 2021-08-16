@@ -22,10 +22,11 @@ class Camera(object):
             ret_flag, Vshow = self.cap.read()  # 是否正确，图像
             if not ret_flag:
                 raise ValueError("Failed to get image")
+            # updata_func用于后续画框
             if self.updata_func is not None:
-                Vshow = self.updata_func(Vshow)
-            cv2.imshow('Capture', Vshow)
-            # q退出
+                Wshow = self.updata_func(Vshow)
+            cv2.imshow('Capture', Wshow)
+            # 按q退出
             usdown = cv2.waitKey(0)
             if usdown == "q":
                 self.cap.release()
