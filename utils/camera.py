@@ -22,19 +22,21 @@ class Camera(object):
             ret_flag, Vshow = self.cap.read()  # 是否正确，图像
             if not ret_flag:
                 raise ValueError("Failed to get image")
-            # updata_func用于后续画框
-            if self.updata_func is not None:
-                Wshow = self.updata_func(Vshow)
-            cv2.imshow('Capture', Wshow)
-            # 按q退出
-            usdown = cv2.waitKey(0)
-            if usdown == "q":
-                self.cap.release()
-                cv2.destoryAllWindows()
-            time.sleep(0.1)  # 每0.1秒获取一次
             # 保存
             if save_path is not None:
                 img_path = ops.join(
                     save_path,
-                    (time.time().replace(".", "_") + ".jpg"))
+                    (str(time.time()).replace(".", "_") + ".jpg"))
+                time.sleep(0.1)  # 每0.1秒获取一次
                 cv2.imwrite(img_path, Vshow)
+            # updata_func用于后续画框
+            if self.updata_func is not None:
+                Vshow = self.updata_func(Vshow)
+            cv2.imshow('Capture', Vshow)
+            # 按q退出
+            usdown = cv2.waitKey(1)
+            print(usdown)
+            if usdown == 113:  # q
+                break
+        self.cap.release()
+        cv2.destroyAllWindows()
