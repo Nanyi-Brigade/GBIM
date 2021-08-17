@@ -2,10 +2,13 @@
 
 __pycache__
 
-# dataset
+handdet/dataset
 *.tar.gz
 *.zip
 *.jpg
+*.xml
 
-# weight
-*.pdparams
+gim
+
+# output
+*.log

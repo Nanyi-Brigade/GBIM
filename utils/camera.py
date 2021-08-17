@@ -35,7 +35,7 @@ class Camera(object):
             cv2.imshow('Capture', Vshow)
             # 按q退出
             usdown = cv2.waitKey(1)
-            print(usdown)
+            # print(usdown)
             if usdown == 113:  # q
                 break
         self.cap.release()

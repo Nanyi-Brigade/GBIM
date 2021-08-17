@@ -1,7 +1,7 @@
 import paddlex as pdx
 from paddlex import transforms as T
 
-# TODO: 数据来了再修改
+
 train_transforms = T.Compose([
     T.MixupImage(mixup_epoch=-1), T.RandomDistort(),
     T.RandomExpand(im_padding_value=[123.675, 116.28, 103.53]), T.RandomCrop(),
@@ -17,21 +17,21 @@ eval_transforms = T.Compose([
 ])
 
 train_dataset = pdx.datasets.VOCDetection(
-    data_dir='insect_det',
-    file_list='insect_det/train_list.txt',
-    label_list='insect_det/labels.txt',
+    data_dir='handdet/dataset',
+    file_list='handdet/dataset/train_list.txt',
+    label_list='handdet/dataset/labels.txt',
     transforms=train_transforms,
     shuffle=True)
 eval_dataset = pdx.datasets.VOCDetection(
-    data_dir='insect_det',
-    file_list='insect_det/val_list.txt',
-    label_list='insect_det/labels.txt',
+    data_dir='handdet/dataset',
+    file_list='handdet/dataset/val_list.txt',
+    label_list='handdet/dataset/labels.txt',
     transforms=eval_transforms)
 
 num_classes = len(train_dataset.labels)
 model = pdx.det.PPYOLOTiny(num_classes=num_classes)
 model.train(
-    num_epochs=550,
+    num_epochs=1000,
     train_dataset=train_dataset,
     train_batch_size=16,
     eval_dataset=eval_dataset,
@@ -42,5 +42,5 @@ model.train(
     lr_decay_epochs=[130, 540],
     lr_decay_gamma=.5,
     save_interval_epochs=5,
-    save_dir='output/ppyolotiny',
+    save_dir='handdet/output',
     use_vdl=True)

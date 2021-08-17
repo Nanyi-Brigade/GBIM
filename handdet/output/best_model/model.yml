@@ -1,0 +1,81 @@
+Model: PPYOLOTiny
+Transforms:
+- Resize:
+    interp: CUBIC
+    keep_ratio: false
+    target_size: !!python/tuple
+    - 320
+    - 320
+- Normalize:
+    is_scale: true
+    max_val:
+    - 255.0
+    - 255.0
+    - 255.0
+    mean:
+    - 0.485
+    - 0.456
+    - 0.406
+    min_val:
+    - 0
+    - 0
+    - 0
+    std:
+    - 0.229
+    - 0.224
+    - 0.225
+_Attributes:
+  eval_metrics:
+    bbox_map: 100.0
+  fixed_input_shape: null
+  labels:
+  - hand
+  model_type: detector
+  num_classes: 1
+_init_params:
+  anchor_masks:
+  - - 6
+    - 7
+    - 8
+  - - 3
+    - 4
+    - 5
+  - - 0
+    - 1
+    - 2
+  anchors:
+  - - 10
+    - 15
+  - - 24
+    - 36
+  - - 72
+    - 42
+  - - 35
+    - 87
+  - - 102
+    - 96
+  - - 60
+    - 170
+  - - 220
+    - 125
+  - - 128
+    - 222
+  - - 264
+    - 266
+  backbone: MobileNetV3
+  ignore_threshold: 0.5
+  label_smooth: false
+  nms_iou_threshold: 0.45
+  nms_keep_topk: 100
+  nms_score_threshold: 0.005
+  nms_topk: 1000
+  num_classes: 1
+  scale_x_y: 1.05
+  use_drop_block: true
+  use_iou_aware: false
+  use_iou_loss: true
+  use_matrix_nms: false
+  use_spp: true
+completed_epochs: 65
+status: Normal
+version: 2.0.0rc4
