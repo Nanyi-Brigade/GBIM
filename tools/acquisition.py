@@ -2,7 +2,7 @@ import sys
 import os
 import os.path as ops
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+root = ops.dirname(ops.dirname(ops.abspath(__file__)))
 sys.path.append(root)
 
 from utils import Camera
