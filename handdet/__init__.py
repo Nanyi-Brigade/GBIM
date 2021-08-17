@@ -1,1 +1,1 @@
-from infer import HandDet
+from .infer import HandDet
