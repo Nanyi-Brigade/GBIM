@@ -6,55 +6,17 @@
 
 ## 手势
 
-<table><tbody>
-    <tr>
-        <th bgcolor="MintCream"><center>手势</center></th>
-        <th bgcolor="MintCream"><center>交互</center></th>
-    </tr>
-    <tr>
-        <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/7oQ1LxGh4jF3tpY.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>向上滑动</center></td>
-    </tr>
-    <tr>
-        <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/AImBc5J1MihfTeY.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>向下滑动</center></td>
-    </tr>
-    <tr>
-        <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/VoHT1j65CblqvJO.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>向左滑动</center></td>
-    </tr>
-    <tr>
-       <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/pzRXCByJI7cLQx4.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>向右滑动</center></td>
-    </tr>
-    <tr>
-        <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/RkrTGL59WYA4yXz.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>放大</center></td>
-    </tr>
-    <tr>
-        <td bgcolor="White"><center>
-            <img src="https://i.loli.net/2021/08/17/gLzVIXidaK62Dy7.jpg"/>
-        </center></td>
-        <td bgcolor="White"><center>缩小</center></td>
-    </tr>
-    </tr>
-</table>
+|                          手势                          |   交互   |                          手势                          |   交互   |                          手势                          |   交互   |
+| :----------------------------------------------------: | :------: | :----------------------------------------------------: | :------: | :----------------------------------------------------: | :------: |
+| ![](https://i.loli.net/2021/08/17/7oQ1LxGh4jF3tpY.jpg) | 向上滑动 | ![](https://i.loli.net/2021/08/17/VoHT1j65CblqvJO.jpg) | 向左滑动 | ![](https://i.loli.net/2021/08/17/RkrTGL59WYA4yXz.jpg) | 地图放大 |
+|                        **手势**                        | **交互** |                        **手势**                        | **交互** |                        **手势**                        | **交互** |
+| ![](https://i.loli.net/2021/08/17/AImBc5J1MihfTeY.jpg) | 向下滑动 | ![](https://i.loli.net/2021/08/17/pzRXCByJI7cLQx4.jpg) | 向右滑动 | ![](https://i.loli.net/2021/08/17/gLzVIXidaK62Dy7.jpg) | 地图缩小 |
 
 ## 进度安排
 
 - [x] 确认用于交互的手势序列。
 - [x] 确认`camera.py`的正确性，使用`acquisition.py`采集一些电脑摄像头拍摄的数据（采集多种手势，包括交互的与其他的）。
-- [x] 数据标注，训练手的目标检测模型。
+- [x] 数据标注，训练手的目标检测模型【待测试】。
 - [ ] 捕获目标手，取相同序列数组成数据集进行标注，训练手势分类模型。
 - [ ] 交互手势的检测与识别组合验证。
 - [ ] 搭建可用于参数调节的简单web地图。
