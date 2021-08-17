@@ -1,6 +1,6 @@
 # GBIM
 
-[![Python 3.6](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)[![PaddleX](https://img.shields.io/badge/PaddleX-2.0.0rc4-blue.svg)](LICENSE) [![License](https://img.shields.io/badge/License-Apache%202-blue.svg)](LICENSE)
+[![Python 3.6](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/) [![PaddleX](https://img.shields.io/badge/PaddleX-2.0.0rc4-blue.svg)](LICENSE) [![License](https://img.shields.io/badge/License-Apache%202-blue.svg)](LICENSE)
 
 手势交互地图 GBIM(Gesture-Based Interaction map)。可通过电脑摄像头观察使用者的手势变化，进而简单控制地图的交互。
 
