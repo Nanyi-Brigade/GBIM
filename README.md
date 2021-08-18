@@ -28,7 +28,25 @@
 
 ## 模型
 
-使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型。模型文件上传使用[LFS](https://git-lfs.github.com/)。
+使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型。模型文件上传使用LFS，下拉时注意需要安装LFS，参考[LFS文档](https://git-lfs.github.com/)。
+
+## 常见问题及解决
+
+1. **Q: clone在LFS文件卡住**
+
+   A：首先确认按照文档安装LFS。在clone时卡住可以先跳过LFS文件，再单独拉取，参考下面git代码：
+
+   ```shell
+   // 开启跳过无法clone的LFS文件
+   git lfs install --skip-smudge 
+   // clone当前项目
+   git clone "current project" 
+   // 进入当前项目，单独拉取LFS文件
+   cd "current project" 
+   git lfs pull 
+   // 恢复LFS设置
+   git lfs install --force
+   ```
 
 ## 交流与反馈
 
