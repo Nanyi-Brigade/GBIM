@@ -31,7 +31,8 @@ class Camera(object):
                 cv2.imwrite(img_path, Vshow)
             # updata_func用于后续画框
             if self.updata_func is not None:
-                Vshow = self.updata_func(Vshow)
+                Wshow = self.updata_func(Vshow)
+                Vshow = Wshow if Wshow is not None else Vshow
             cv2.imshow('Capture', Vshow)
             # 按q退出
             usdown = cv2.waitKey(1)
