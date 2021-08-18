@@ -1,9 +1,9 @@
-import sys
 import os
 import os.path as ops
+from tools.path import init_path
 
-root = ops.dirname(ops.dirname(ops.abspath(__file__)))
-sys.path.append(root)
+from path import init_path
+root = init_path()
 
 from utils import Camera
 

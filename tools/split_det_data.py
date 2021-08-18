@@ -3,10 +3,13 @@ import os.path as ops
 import random
 from tqdm import tqdm
 
+from path import init_path
+root = init_path()
 
-jpeg_folder = "handdet/dataset/JPEGImages"
-train_txt = "handdet/dataset/train_list.txt"
-val_txt = "handdet/dataset/val_list.txt"
+
+jpeg_folder = (ops.join(root, "handdet/dataset/JPEGImages"))
+train_txt = (ops.join(root, "handdet/dataset/train_list.txt"))
+val_txt = (ops.join(root, "handdet/dataset/val_list.txt"))
 
 with open(train_txt, "w") as tf:
     with open(val_txt, "w") as vf:

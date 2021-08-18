@@ -3,6 +3,7 @@
 __pycache__
 
 handdet/dataset
+handclas/dataset
 *.tar.gz
 *.zip
 *.jpg
