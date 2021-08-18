@@ -1,3 +1,4 @@
+import os
 import os.path as ops
 
 from path import init_path
@@ -8,6 +9,8 @@ from utils import Camera
 
 
 save_path = ops.join(root, "handclas/dataset")
+if not ops.exists(save_path):
+    os.mkdir(save_path)
 hdet = HandDet(ops.join(root, "handdet/output/best_model"))
 acq_camera = Camera(
     updata_func=hdet.get_vis,
