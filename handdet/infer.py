@@ -14,7 +14,7 @@ class HandDet():
     def get_hand(self, img):
         bbox = self._infer(img)
         hand_img = None
-        if len(bbox) != 0:
+        if len(bbox) != 0 and img is not None:
             hand_img = self._clip_img_by_bbox(img, bbox)
         return hand_img
 
@@ -36,6 +36,6 @@ class HandDet():
 
     # 根据bbox裁剪图像
     def _clip_img_by_bbox(self, img, bbox):
-        x1, y1, x2, y2 = bbox["bbox"]
-        hand = img[x1: x2, y1: y2, :]
+        x, y, w, h = bbox[0]["bbox"]
+        hand = img[int(y): int(y + w), int(x): int(x + h), :]
         return hand

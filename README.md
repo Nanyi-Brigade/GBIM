@@ -28,7 +28,7 @@
 
 ## 模型
 
-使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型。模型文件上传使用LFS，下拉时注意需要安装LFS，参考[LFS文档](https://git-lfs.github.com/)。
+使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型，由于数据集和未调参训练的原因，当前默认识别效果较差。模型文件上传使用LFS，下拉时注意需要安装LFS，参考[LFS文档](https://git-lfs.github.com/)。
 
 ## 人手识别演示
 
