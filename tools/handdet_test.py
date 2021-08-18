@@ -9,6 +9,6 @@ from utils import Camera
 
 # 手识别的测试
 hdet = HandDet(ops.join(root, "handdet/output/best_model"))
-acq_camera = Camera(updata_func=hdet.get_vis)
+det_camera = Camera(updata_func=hdet.get_vis)
 print("Start acquisition, press 'q' to exit.")
-acq_camera.get_img()
+det_camera.get_img()
