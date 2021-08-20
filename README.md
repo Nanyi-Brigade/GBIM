@@ -19,7 +19,7 @@
 - [x] 数据标注，训练手的目标检测模型
 - [x] 捕获目标手，使用`clas_acq.py`获取手部图像进行标注，并用于训练手势分类模型。
 - [x] 交互手势的检测与识别组合验证，使用`test.py`。
-- [ ] 搭建可用于参数调节的简单web地图。
+- [ ] 搭建可用于参数调节的简单web地图（Folium or Baidu map?）。
 - [ ] 组合功能，验证基本功能。
 - [ ] 重新采集和标注数据，调参训练模型。
 - [ ] 整理及美化。
@@ -29,7 +29,7 @@
 ### 手势检测
 
 - 数据集使用来自联想小新笔记本摄像头采集的数据，使用labelImg标注为VOC格式，共1011张。该数据集场景、环境和人物单一，仅作为测试使用，不提供数据集下载。数据组织参考PaddelX下的[PascalVOC](https://github.com/PaddlePaddle/PaddleX/blob/develop/docs/data/format/detection.md)数据组织方式。
-- 模型使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型，由于数据集和未调参训练的原因，当前默认识别效果较差。
+- 模型使用超轻量级[PPYOLO Tiny](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.2/configs/ppyolo/README_cn.md)，模型大小小于4MB，随便训练了100轮后保留best_model作为测试模型，由于数据集和未调参训练的原因，当前默认识别效果**较差**。
 
 ### 手势分类
 
@@ -47,13 +47,13 @@ dataset
 	└-- val_list.txt
 ```
 
-- 模型使用超轻量级MobileNet  V3 small，模型大小小于7MB，由于数据量很小，随便训练了20轮后保留best_model作为测试模型，当前识别分类效果一般。
+- 模型使用超轻量级MobileNet  V3 small，模型大小小于7MB，由于数据量很小，随便训练了20轮后保留best_model作为测试模型，当前识别分类效果**较差**。
 
 *模型文件上传使用LFS，下拉时注意需要安装LFS，参考[LFS文档](https://git-lfs.github.com/)。后续将重新采集和标注更加多样的大量数据集，并采用更好的调参方法获得更加准确的识别模型*
 
-## 人手识别演示
+## 手势识别演示
 
-<img src="https://user-images.githubusercontent.com/71769312/129848717-d142d192-c6ba-4f31-9ec8-c49a83d9e304.gif" alt="handdet_demo" style="zoom:50%;" />
+![](https://user-images.githubusercontent.com/71769312/130256584-8ac11188-dadc-472b-994e-7e0b7ea2f88a.gif)
 
 ## 常见问题及解决
 
