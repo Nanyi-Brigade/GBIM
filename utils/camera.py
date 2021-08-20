@@ -20,7 +20,7 @@ class Camera(object):
         self.cap.set(4, c_height)  # 高
         self.updata_func = updata_func  # 图像显示方法
         self.save_func = save_func  # 图像保存方法
-        self.class_func =class_func
+        self.class_func =class_func  # 图像分类
 
     def get_img(self, save_path=None):
         while(self.cap.isOpened()):
@@ -37,12 +37,14 @@ class Camera(object):
                 if Vsave is not None:
                     cv2.imwrite(img_path, Vsave)
             # 显示
+            Wshow = Vshow.copy()
             if self.updata_func is not None:
-                Wshow = self.updata_func(Vshow)
-                Vshow = Wshow if Wshow is not None else Vshow
-            cv2.imshow('Capture', Vshow)
+                Wshow = self.updata_func(Wshow)
+                if Wshow is None:
+                    Wshow = Vshow.copy()
+            cv2.imshow('Capture', Wshow)
             if self.class_func is not None:
-                sc_show(Vshow, self.class_func)
+                sc_show(self.save_func(Vshow), self.class_func)
             # 按q退出
             usdown = cv2.waitKey(1)
             # print(usdown)

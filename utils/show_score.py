@@ -7,9 +7,10 @@ CLASSES = ["up", "down", "left", "right", "big", "small", "other"]
 def sc_show(img, clas_func):
     result = clas_func(img)
     action = result[0]['category']
-    cv2.putText(img, action, (0, 20),
-                cv2.FONT_HERSHEY_PLAIN, 2.0, (0, 255, 0), 2)
-    layout = np.zeros(img.shape)
+    img24 = cv2.resize(img, (224, 224))
+    cv2.putText(img24, action, (0, 20),
+                cv2.FONT_HERSHEY_PLAIN, 2.0, (0, 0, 255), 2)
+    layout = np.ones(img24.shape) * 255
     final = []
     for clas in CLASSES:
         for v in result:
@@ -21,8 +22,10 @@ def sc_show(img, clas_func):
         text = "{}: {:.2f}%".format(CLASSES[i], score * 100)
         w = int(score * 300)
         cv2.rectangle(layout, (7, (i * 35) + 5),
-                        (w, (i * 35) + 35), (0, 0, 255), -1)
+                        (w, (i * 35) + 35), (130, 195, 175), -1)
         cv2.putText(layout, text, (10, (i * 35) + 23),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.45,
-                    (255, 255, 255), 2)
-    cv2.imshow('Thesholded', np.vstack([img, layout]))
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                    (0, 0, 0), 2)
+    cv2.imshow('Thesholded', np.vstack([
+        img24.astype("uint8"), 
+        layout.astype("uint8")]))

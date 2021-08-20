@@ -1,5 +1,12 @@
 import paddlex as pdx
+from paddlex import transforms as T
 
+
+transforms = T.Compose([
+    T.Resize(
+        target_size=320, interp='CUBIC'), T.Normalize(
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
 
 class HandDet():
     def __init__(self, params_path, threshold=0.7):
@@ -19,7 +26,7 @@ class HandDet():
         return hand_img
 
     def _infer(self, img):
-        result = self.model.predict(img)
+        result = self.model.predict(img, transforms=transforms)
         bbox = self._get_max(result)
         return bbox
     
