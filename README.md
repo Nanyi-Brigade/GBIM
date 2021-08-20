@@ -39,9 +39,9 @@
 dataset
 	├-- Images
 	|     ├-- up
-	┆	  ┆	   └-- xxx.jpg
-	|	  └-- other
-	┆	   	   └-- xxx.jpg
+	┆     ┆	   └-- xxx.jpg
+	|     └-- other
+	┆          └-- xxx.jpg
 	├-- labels.txt
 	├-- train_list.txt
 	└-- val_list.txt
