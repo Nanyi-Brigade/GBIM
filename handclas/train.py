@@ -3,7 +3,7 @@ from paddlex import transforms as T
 
 
 train_transforms = T.Compose(
-    [T.RandomCrop(crop_size=224), T.RandomHorizontalFlip(), T.Normalize()])
+    [T.RandomCrop(crop_size=224), T.RandomBlur(), T.RandomDistort(), T.Normalize()])
 eval_transforms = T.Compose([
     T.ResizeByShort(short_size=256), T.CenterCrop(crop_size=224), T.Normalize()
 ])
@@ -21,8 +21,8 @@ eval_dataset = pdx.datasets.ImageNet(
     transforms=eval_transforms)
 
 num_classes = len(train_dataset.labels)
-model = pdx.cls.MobileNetV3_large_ssld(num_classes=num_classes)
-model.train(num_epochs=12,
+model = pdx.cls.MobileNetV3_small_ssld(num_classes=num_classes)
+model.train(num_epochs=20,
             train_dataset=train_dataset,
             train_batch_size=32,
             eval_dataset=eval_dataset,

@@ -6,5 +6,5 @@ class HandClas():
         self.model = pdx.load_model(params_path)
 
     def get_clas(self, img):
-        result = model.predict(img)
+        result = self.model.predict(img, topk=5)
         return result

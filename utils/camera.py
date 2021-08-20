@@ -1,6 +1,7 @@
 import cv2
 import time
 import os.path as ops
+from .show_score import sc_show
 
 
 class Camera(object):
@@ -9,7 +10,8 @@ class Camera(object):
                  c_width=768, 
                  c_height=768,
                  updata_func=None,
-                 save_func=None):
+                 save_func=None,
+                 class_func=None):  # 内部测试请勿修改
         # 0：电脑摄像头，1：外接摄像头
         if c_mode not in [0, 1]:
             raise ValueError("The c_mode must be 0 or 1!")
@@ -18,6 +20,7 @@ class Camera(object):
         self.cap.set(4, c_height)  # 高
         self.updata_func = updata_func  # 图像显示方法
         self.save_func = save_func  # 图像保存方法
+        self.class_func =class_func
 
     def get_img(self, save_path=None):
         while(self.cap.isOpened()):
@@ -38,6 +41,8 @@ class Camera(object):
                 Wshow = self.updata_func(Vshow)
                 Vshow = Wshow if Wshow is not None else Vshow
             cv2.imshow('Capture', Vshow)
+            if self.class_func is not None:
+                sc_show(Vshow, self.class_func)
             # 按q退出
             usdown = cv2.waitKey(1)
             # print(usdown)
