@@ -8,13 +8,11 @@ train_transforms = T.Compose([
     T.RandomHorizontalFlip(), T.BatchRandomResize(
         target_sizes=[192, 224, 256, 288, 320, 352, 384, 416, 448, 480, 512],
         interp='RANDOM'), T.Normalize(
-            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 eval_transforms = T.Compose([
     T.Resize(
         target_size=320, interp='CUBIC'), T.Normalize(
-            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-])
+            mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
 
 train_dataset = pdx.datasets.VOCDetection(
     data_dir='handdet/dataset',

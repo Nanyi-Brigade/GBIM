@@ -1,11 +1,11 @@
 Model: MobileNetV3_small_ssld
 Transforms:
-- ResizeByShort:
+- Resize:
     interp: LINEAR
-    max_size: -1
-    short_size: 256
-- CenterCrop:
-    crop_size: 224
+    keep_ratio: false
+    target_size: !!python/tuple
+    - 224
+    - 224
 - Normalize:
     is_scale: true
     max_val:
@@ -40,6 +40,6 @@ _Attributes:
   num_classes: 7
 _init_params:
   num_classes: 7
-completed_epochs: 9
+completed_epochs: 5
 status: Normal
 version: 2.0.0rc4

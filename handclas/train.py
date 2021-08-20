@@ -2,11 +2,11 @@ import paddlex as pdx
 from paddlex import transforms as T
 
 
-train_transforms = T.Compose(
-    [T.RandomCrop(crop_size=224), T.RandomBlur(), T.RandomDistort(), T.Normalize()])
+# TODO: 色彩变换
+train_transforms = T.Compose([
+    T.Resize(target_size=224), T.RandomBlur(), T.RandomDistort(), T.Normalize()])
 eval_transforms = T.Compose([
-    T.ResizeByShort(short_size=256), T.CenterCrop(crop_size=224), T.Normalize()
-])
+    T.Resize(target_size=224), T.Normalize()])
 
 train_dataset = pdx.datasets.ImageNet(
     data_dir='handclas/dataset',
