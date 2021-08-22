@@ -13,17 +13,15 @@ class HandDet():
         self.model = pdx.load_model(params_path)
         self.threshold = threshold
 
-    def get_vis(self, img):
-        bbox = self._infer(img)
-        return pdx.det.visualize(
-            img, bbox, threshold=self.threshold, save_dir=None)
-
     def get_hand(self, img):
         bbox = self._infer(img)
         hand_img = None
+        vis_img = img.copy()
         if len(bbox) != 0 and img is not None:
-            hand_img = self._clip_img_by_bbox(img, bbox)
-        return hand_img
+            if bbox[0]["score"] >= self.threshold:
+                hand_img = self._clip_img_by_bbox(img, bbox)
+                vis_img = pdx.det.visualize(vis_img, bbox, save_dir=None)
+        return hand_img, vis_img
 
     def _infer(self, img):
         result = self.model.predict(img, transforms=transforms)
@@ -34,8 +32,8 @@ class HandDet():
     def _get_max(self, bboxs):
         if len(bboxs) == 0:
             return []
-        max_score = bboxs[0]["score"]
         max_bbox = bboxs[0]
+        max_score = max_bbox["score"]
         for bbox in bboxs:
             if bbox["score"] > max_score:
                 max_bbox = bbox
@@ -44,5 +42,5 @@ class HandDet():
     # 根据bbox裁剪图像
     def _clip_img_by_bbox(self, img, bbox):
         x, y, w, h = bbox[0]["bbox"]
-        hand = img[int(y): int(y + w), int(x): int(x + h), :]
+        hand = img[int(y): int(y + h), int(x): int(x + w), :]
         return hand
