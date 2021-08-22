@@ -39,7 +39,7 @@
 dataset
 	├-- Images
 	|     ├-- up
-	┆     ┆	   └-- xxx.jpg
+	┆     ┆    └-- xxx.jpg
 	|     └-- other
 	┆          └-- xxx.jpg
 	├-- labels.txt
