@@ -35,7 +35,10 @@ class Camera(object):
                     save_path,
                     (str(time.time()).replace(".", "_") + ".jpg"))
                 time.sleep(0.1)  # 每0.1秒获取一次
-                Vsave = self.save_func(Vshow)
+                if self.save_func is not None:
+                    Vsave = self.save_func(Vshow)
+                else:
+                    Vsave = Vshow
                 if Vsave is not None:
                     cv2.imwrite(img_path, Vsave)
             # 显示
