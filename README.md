@@ -20,7 +20,7 @@
 - [x] 使用`det_acq.py`采集一些电脑摄像头拍摄的人手姿势数据。
 - [x] 数据标注，训练手的目标检测模型
 - [x] 捕获目标手，使用`clas_acq.py`获取手部图像进行标注，并用于训练手势分类模型。
-- [x] 交互手势的检测与识别组合验证，使用`test.py`。
+- [x] 交互手势的检测与识别组合验证。
 - [x] 打开百度地图网页版，进行模拟按键交互。
 - [x] 组合功能，验证基本功能。
 
@@ -68,7 +68,28 @@ dataset
 
 ![](https://user-images.githubusercontent.com/71769312/130341113-b542bb1c-7114-428d-a3f7-727da8c6cccf.gif)
 
-**未显示`Capture`界面*
+**未显示Capture界面*
+
+## 使用
+
+1. 克隆当前项目到本地，按照`requirements.txt`安装所依赖的包opencv、paddlex以及pynput。PaddleX对应请安装最新版的PaddlePaddle，由于模型轻量，CPU版本足矣，参考下面代码，细节参考[官方网站](https://www.paddlepaddle.org.cn/)：
+
+```shell
+python -m pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
+```
+
+2. 进入`demo.py`，将浏览器路径修改为自己使用的浏览器路径：
+
+```python
+web_path = '"D:/Twinkstar/Twinkstar Browser/twinkstar.exe"'  # 自己的浏览器路径
+```
+
+3. 运行``demo.py`启动程序：
+
+```shell
+cd GBIM
+python demo.py
+```
 
 ## 常见问题及解决
 
@@ -87,6 +108,10 @@ dataset
    // 恢复LFS设置
    git lfs install --force
    ```
+
+2. **Q：按`q`或者手势交互无效**
+
+   A：请注意当前鼠标点击的焦点，焦点在Capture，则接受`q`退出；焦点在浏览器，则交互结果将驱动浏览器中的地图进行变换。
 
 ## 参考
 
