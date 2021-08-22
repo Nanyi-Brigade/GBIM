@@ -1,3 +1,4 @@
 opencv
+paddlepaddle==2.1.1
 paddlex==2.0.0rc4
 pynput

@@ -1,6 +1,5 @@
 import os
 import os.path as ops
-from tools.path import init_path
 
 from path import init_path
 root = init_path()
