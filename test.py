@@ -4,7 +4,7 @@ from handclas import HandClas
 from utils import Camera
 
 # 打开web地图
-web_path = '"D:/Twinkstar/Twinkstar Browser/twinkstar.exe"'  # 自己的浏览器路径
+web_path = '"C:/Program Files (x86)/Lenovo/SLBrowser/SLBrowser.exe"'  # 自己的浏览器路径
 map_url = "https://map.baidu.com/@11585451,3556256.7499999995,12z"  # 成都
 os.system(web_path + " " + map_url)
 # 手识别的测试
