@@ -1,12 +1,12 @@
-# import os.path as ops
-# from path import init_path
-# root = init_path()
-
+import os
 from handdet import HandDet
 from handclas import HandClas
 from utils import Camera
 
-
+# 打开web地图
+web_path = '"D:/Twinkstar/Twinkstar Browser/twinkstar.exe"'  # 自己的浏览器路径
+map_url = "https://map.baidu.com/@11585451,3556256.7499999995,12z"  # 成都
+os.system(web_path + " " + map_url)
 # 手识别的测试
 hdet = HandDet("handdet/output/best_model")
 hclas = HandClas("handclas/output/best_model")

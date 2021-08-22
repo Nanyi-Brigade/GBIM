@@ -11,7 +11,8 @@ class Camera(object):
                  c_height=768,
                  updata_func=None,
                  save_func=None,
-                 class_func=None):  # 内部测试请勿修改
+                 class_func=None,
+                 key_press=False):
         # 0：电脑摄像头，1：外接摄像头
         if c_mode not in [0, 1]:
             raise ValueError("The c_mode must be 0 or 1!")
@@ -21,6 +22,7 @@ class Camera(object):
         self.updata_func = updata_func  # 图像显示方法
         self.save_func = save_func  # 图像保存方法
         self.class_func =class_func  # 图像分类
+        self.key_press = key_press  # 键盘控制
 
     def get_img(self, save_path=None):
         while(self.cap.isOpened()):
@@ -43,8 +45,10 @@ class Camera(object):
                 if Wshow is None:
                     Wshow = Vshow.copy()
             cv2.imshow('Capture', Wshow)
+            # 手势分类
             if self.class_func is not None:
-                sc_show(self.save_func(Vshow), self.class_func)
+                sc_show(
+                    self.save_func(Vshow), self.class_func, self.key_press)
             # 按q退出
             usdown = cv2.waitKey(1)
             # print(usdown)

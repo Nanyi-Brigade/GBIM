@@ -1,13 +1,15 @@
 import cv2
 import numpy as np
+from .controller import press_key
 
 
 CLASSES = ["up", "down", "left", "right", "big", "small", "other"]
 
-def sc_show(img, clas_func):
+def sc_show(img, clas_func, key_press=False):
     result = clas_func(img)
     # print(result)
     action = result[0]['category']
+    press_key(action)  # 按键
     img24 = cv2.resize(img, (224, 224))
     cv2.putText(img24, action, (0, 20),
                 cv2.FONT_HERSHEY_PLAIN, 2.0, (0, 0, 255), 2)
