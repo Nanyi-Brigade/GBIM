@@ -1,6 +1,6 @@
 # GBIM
 
-[![Python 3.6](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/) [![PaddleX](https://img.shields.io/badge/PaddleX-2.0.0rc4-blue.svg)](LICENSE) [![License](https://img.shields.io/badge/License-Apache%202-blue.svg)](LICENSE)
+[![Python 3.6](https://img.shields.io/badge/Python-3.6+-red.svg)](https://www.python.org/downloads/release/python-360/) [![PaddleX](https://img.shields.io/badge/PaddleX-2.0.0rc4-red.svg)](LICENSE) [![License](https://img.shields.io/badge/License-Apache%202-red.svg)](LICENSE)
 
 手势交互地图 GBIM(Gesture-Based Interaction map)，基于视觉深度神经网络的交互地图，通过电脑摄像头观察使用者的手势变化，进而控制地图进行简单的交互。网络使用PaddleX提供的轻量级模型PPYOLO Tiny以及MobileNet  V3 small，使得整个模型大小约10MB左右，即使在CPU下也能快速定位和识别手势。
 
@@ -26,8 +26,8 @@
 
 ### 进阶
 
+- [ ] 将图像分类改为序列图像分类，提高手势识别的流畅度和准确度。
 - [ ] 重新采集和标注数据，调参训练模型。
-- [ ] 将图像分类改为序列图像分类，提高手势识别的准确度。
 - [ ] 搭建可用于参数调节的地图。
 - [ ] 界面整合，整理及美化。
 
