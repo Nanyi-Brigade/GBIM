@@ -44,11 +44,13 @@ class Camera(object):
                 Wshow = self.updata_func(Wshow)
                 if Wshow is None:
                     Wshow = Vshow.copy()
+                else:
+                    # 手势分类
+                    if self.class_func is not None:
+                        sc_show(
+                            self.save_func(Vshow), 
+                            self.class_func, self.key_press)
             cv2.imshow('Capture', Wshow)
-            # 手势分类
-            if self.class_func is not None:
-                sc_show(
-                    self.save_func(Vshow), self.class_func, self.key_press)
             # 按q退出
             usdown = cv2.waitKey(1)
             # print(usdown)
