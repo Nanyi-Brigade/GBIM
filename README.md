@@ -84,7 +84,7 @@ python -m pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
 web_path = '"D:/Twinkstar/Twinkstar Browser/twinkstar.exe"'  # 自己的浏览器路径
 ```
 
-3. 运行``demo.py`启动程序：
+3. 运行`demo.py`启动程序：
 
 ```shell
 cd GBIM
@@ -112,6 +112,14 @@ python demo.py
 2. **Q：按`q`或者手势交互无效**
 
    A：请注意当前鼠标点击的焦点，焦点在Capture，则接受`q`退出；焦点在浏览器，则交互结果将驱动浏览器中的地图进行变换。
+
+3. **Q：安装PaddleX时报错，关于MV C++**
+
+   A：若在Windows下安装coco tool时报错，则可能缺少Microsoft Visual C++，可在[微软官方下载网页](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/)进行下载安装后重启，即可解决。
+   
+4. **Q：运行未报错，但没有保存数据到本地**
+
+   A：请检查路径是否有中文，`cv2.imwrite`保存图像时不能有中文路径。
 
 ## 参考
 
